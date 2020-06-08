@@ -6,6 +6,7 @@ public class AController {
 		System.out.println("test");
 		System.out.println("test2");
 		System.out.println("junpil_test");
+		System.out.println("5");
 	}
 
 }
