@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+  <configuration>
+   
+   <!-- XML Mapper 사용할때  리턴되는 타입의 패키지명을 미리 설정가능 -->
+   <typeAliases>
+     <package name="com.myproject.domain"/>
+   </typeAliases> 
+  
+  </configuration>
+  
+  
+  
+  

@@ -1,4 +1,4 @@
-package com.myproject.myapp;
+package com.myproject.controller;
 
 public class AController {
 	
