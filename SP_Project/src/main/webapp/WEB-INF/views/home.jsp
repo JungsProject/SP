@@ -25,7 +25,7 @@ function start(){
     data :{url: "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/귤린져"},//data에 주소 수정
     url : "<c:out value="${pageContext.request.contextPath}/riotAPI"></c:out>",	//링크는 그대로 유지
     success : function(data) {
-     alert(data);	//성공시 실행
+    console.log(data);
     }
    }); 
 }

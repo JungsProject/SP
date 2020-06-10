@@ -11,6 +11,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -40,9 +47,9 @@ public class HomeController {
 		
 		return "home";
 	}
-	
+		@ResponseBody
 		@RequestMapping("/riotAPI")
-		public String riotAPI (@RequestParam("url") String url, Model model) {
+		public String riotAPI (@RequestParam("url") String url) {
 			String message="";
 			
 			String API_KEY ="RGAPI-822ddabc-8aa1-4ee0-960a-7d0a41e8530e";
@@ -57,12 +64,11 @@ public class HomeController {
 	                 
 				Response response = client.newCall(request).execute(); 
 				 message = response.body().string();
-				 System.out.println(message);
-				model.addAttribute("message",message);
+				 
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-			return "riotapi";
+			return message;
 		}
 	
 }
