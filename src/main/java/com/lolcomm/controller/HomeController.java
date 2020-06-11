@@ -20,8 +20,8 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
-		logger.info("@@@ / 주소호출");
-		logger.info("@@@ home() 호출");
+		logger.info("@@@@ / 주소호출");
+		logger.info("@@@@ home() 호출");
 		logger.info("./home.jsp 페이지 호출");
 		return "home";
 	}
