@@ -12,8 +12,8 @@
   
   <!-- 회원가입 -->
   <insert id="join">
-  	insert into member(id, pass, name, age, nick, email, phone)
-  	values(#{id}, #{pass}, #{name}, #{age}, #{nick}, #{email}, #{phone})
+  	insert into lolc_member(id, pass, name, nick, email, phone)
+  	values(#{id}, #{pass}, #{name}, #{nick}, #{email}, #{phone})
   </insert>
   
   

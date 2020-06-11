@@ -7,7 +7,6 @@ public class MemberVO {
 	private String id;
 	private String pass;
 	private String name;
-	private int age;
 	private String nick;
 	private String email;
 	private String phone;
@@ -32,12 +31,6 @@ public class MemberVO {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
 	}
 	public String getNick() {
 		return nick;
@@ -78,7 +71,7 @@ public class MemberVO {
 	
 	@Override
 	public String toString() {
-		return "MemberVO [id=" + id + ", pass=" + pass + ", name=" + name + ", age=" + age + ", nick=" + nick
+		return "MemberVO [id=" + id + ", pass=" + pass + ", name=" + name + ", nick=" + nick
 				+ ", email=" + email + ", phone=" + phone + ", reg_date=" + reg_date + ", modify_date=" + modify_date
 				+ ", delete_yn=" + delete_yn + "]";
 	}
