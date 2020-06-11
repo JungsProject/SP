@@ -36,7 +36,7 @@
                 String user = (String) session.getAttribute("id");
                 if(user == null){
             %>
-                <li> <a href="#"> LOGIN </a> </li>
+                <li> <a href="./member/login"> LOGIN </a> </li>
             <%
                 }else if(user.equals("admin")){ 
             %>

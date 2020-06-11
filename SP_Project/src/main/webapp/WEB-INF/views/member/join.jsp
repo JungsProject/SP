@@ -18,9 +18,46 @@
 			</div>
 			<input type="text" class="form-control" name="id">
 		</div>
-		<div class="Btn">	
-			<button type="button" class="btn">가입하기</button>
+		<div class="input-group">
+			<div class="input-gorup-prepend">
+					<span class="input-gorup-text">비밀번호</span>
+			</div>
+			<input type="password" class="form-control" name="pass">
 		</div>
+		<div class="input-group">
+			<div class="input-gorup-prepend">
+					<span class="input-gorup-text">나이</span>
+			</div>
+			<input type="text" class="form-control" name="age">
+		</div>
+		<div class="input-group">
+			<div class="input-gorup-prepend">
+					<span class="input-gorup-text">이름</span>
+			</div>
+			<input type="text" class="form-control" name="name">
+		</div>
+		<div class="input-group">
+			<div class="input-gorup-prepend">
+					<span class="input-gorup-text">닉네임</span>
+			</div>
+			<input type="text" class="form-control" name="nick">
+		</div>
+		<div class="input-group">
+			<div class="input-gorup-prepend">
+					<span class="input-gorup-text">이메일</span>
+			</div>
+			<input type="email" class="form-control" name="email">
+		</div>
+		<div class="input-group">
+			<div class="input-gorup-prepend">
+					<span class="input-gorup-text">연락처</span>
+			</div>
+			<input type="text" class="form-control" name="phone">
+		</div>
+		<div class="Btn">	
+			<button type="submit" class="btn">가입하기</button>
+		</div>
+		
 		</form>
 	
 	</fieldset>
