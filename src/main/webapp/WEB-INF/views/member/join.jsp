@@ -32,12 +32,6 @@
 		</div>
 		<div class="input-group">
 			<div class="input-gorup-prepend">
-					<span class="input-gorup-text">나이</span>
-			</div>
-			<input type="text" class="form-control" name="age">
-		</div>
-		<div class="input-group">
-			<div class="input-gorup-prepend">
 					<span class="input-gorup-text">닉네임</span>
 			</div>
 			<input type="text" class="form-control" name="nick">
