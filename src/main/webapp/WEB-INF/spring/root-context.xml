@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- JDBC 사용 DB연결하기 -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+		<!-- <property name="driverClassName" value="com.mysql.jdbc.Driver" /> -->
+		<property name="driverClassName"  value="org.mariadb.jdbc.Driver" />
+
+		<!-- <property name="url" value="jdbc:mysql://localhost:3306/springdb"/> -->
+		<property name="url"
+			value="jdbc:mariadb://203.245.44.16:3306/itwillbs11" />
+		<property name="username" value="itwillbs11"></property>
+		<property name="password" value="itwillbs8030909"></property>
+	</bean>
+	<!-- <bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="driverClassName"  value="org.mariadb.jdbc.Driver" />
+
+		<property name="url" value="jdbc:mysql://localhost:3306/springdb"/>
+		<property name="url"
+			value="jdbc:mariadb://127.0.0.1:3306/itwillbs13" />
+		<property name="username" value="itwillbs13"></property>
+		<property name="password" value="itwillbs8030909"></property>
+	</bean> -->
+	<!-- SqlSessionnFactory객체 : connection생성,처리 
+	    SqlSessionFactoryBean객체(스프링) 
+	-->
+	<bean id="sqlSessionFactory"
+	 class="org.mybatis.spring.SqlSessionFactoryBean">
+	   <property name="dataSource" ref="dataSource" />
+	   <property name="configLocation" 
+	             value="classpath:/mybatis-config.xml"
+	   ></property>
+	   <!-- 
+	   XML(Mapper) 파일을 MyBatis에서 인식하도록 처리 
+	    -->
+	   <property name="mapperLocations"
+	             value="classpath:mappers/**/*Mapper.xml"	   
+	   ></property>	   
+	</bean>
+	
+	<!-- SqlSessionTemplate 객체를 생성
+	     해당 객체는 SqlSessionFactory 객체를 생성자 형태로 주입
+	 -->
+	 <bean id="sqlSession"
+	       class="org.mybatis.spring.SqlSessionTemplate"
+	       destroy-method="clearCache"
+	 >
+	   <constructor-arg 
+	       name="sqlSessionFactory"
+	       ref="sqlSessionFactory"  />
+	 </bean>
+	 
+	 <context:component-scan 
+		 base-package="com.lolcomm.domain" />
+	
+	<!-- Repository 어노테이션을 설정하고,
+	       설정파일에서 스캔하도록 설정 -->
+	<context:component-scan 
+	     base-package="com.lolcomm.persistence" />
+
+	<!-- Repository 어노테이션을 설정하고,
+	       설정파일에서 스캔하도록 설정 -->
+	<context:component-scan 
+	     base-package="com.lolcomm.service" />
+	
+	
+	
+</beans>
