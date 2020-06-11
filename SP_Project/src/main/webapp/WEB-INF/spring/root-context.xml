@@ -19,9 +19,9 @@
 
 		<!-- <property name="url" value="jdbc:mysql://localhost:3306/loldb"/> -->
 		<property name="url"
-			value="jdbc:log4jdbc:mysql://localhost:3306/loldb?useSSL=false" />
-		<property name="username" value="root"></property>
-		<property name="password" value="1234"></property>
+			value="jdbc:log4jdbc:mysql://203.245.44.16:3306/itwillbs11?useSSL=false" />
+		<property name="username" value="itwillbs11"></property>
+		<property name="password" value="itwillbs8030909"></property>
 	</bean>
 	<!-- SqlSessionnFactory객체 : connection생성,처리 
 	    SqlSessionFactoryBean객체(스프링) 
@@ -42,8 +42,6 @@
 	
 	<!-- Repository 어노테이션을 설정하고,
 	       설정파일에서 스캔하도록 설정 -->
-	<context:component-scan 
-	     base-package="com.myproject.domain" />       
 	
 	<context:component-scan 
 	     base-package="com.myproject.persistence" />

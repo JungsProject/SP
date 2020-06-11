@@ -4,31 +4,27 @@
 <%@ page session="false" %>
 <html>
 <head>
-<script src="<c:url value="/webjars/jquery/3.2.1/dist/jquery.js"/>"></script>
-
-
 	<title>Home</title>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
-
-<P>  The time on the server is ${serverTime}. </P>
-	<button onclick="start();">버튼</button>
+	<jsp:include page="./inc/header.jsp"/>
+<hr>
+<h1>Main Page 입니다.</h1>
+<hr>
+	<jsp:include page="./inc/footer.jsp"/>
+	
 <script>
 //ajax 예시
-function start(){
- $.ajax({
+/* $.ajax({
     type : "POST",
     dataType: "json",
     data :{url: "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/귤린져"},//data에 주소 수정
-    url : "<c:out value="${pageContext.request.contextPath}/riotAPI"></c:out>",	//링크는 그대로 유지
+    url : "http://localhost:8088/myapp/riotAPI",	//링크는 그대로 유지
     success : function(data) {
-    console.log(data);
+     alert(data);	//성공시 실행
     }
-   }); 
-}
+   }); */
+
 </script>
 </body>
 </html>
