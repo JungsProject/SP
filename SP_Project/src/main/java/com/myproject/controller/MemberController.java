@@ -25,6 +25,19 @@ public class MemberController {
 	 * public void loginGET() throws Exception { logger.info("@@@ /login 주소 호출"); }
 	 */
 	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public void loginGET() throws Exception {
+		logger.info("@@@ /login 주소 호출");
+		logger.info("@@@ 컨트롤러 loginGET() 호출");
+		logger.info("./member/login.jsp 페이지 호출");
+	}
+	
+	@RequestMapping(value= "/login", method = RequestMethod.POST)
+	public String loginPOST() throws Exception {
+		
+		return null;
+	}
+	
 	// @RequestMapping(value = "매핑될 주소값",method = 호출방식)
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public void joinGET() throws Exception {
