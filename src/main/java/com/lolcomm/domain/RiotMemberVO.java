@@ -1,13 +1,13 @@
 package com.lolcomm.domain;
 
 public class RiotMemberVO {
-	String id;		//riot api id 
-	String accountId;
-	String puuid;
-	String name;
-	int profileIconId;
-	int revisionDate;
-	int summonerLevel;
+	private String id;		//riot api id 
+	private String accountId;
+	private String puuid;
+	private String name;
+	private int profileIconId;
+	private int revisionDate;
+	private int summonerLevel;
 	public String getId() {
 		return id;
 	}

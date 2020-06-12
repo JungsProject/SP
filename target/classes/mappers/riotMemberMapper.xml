@@ -14,19 +14,39 @@
   <select id="select_user" resultType="RiotMemberVO"> 
   select * from lolc_riotSearched_Member where id=#{id};
   </select>
-  <select id="select_mastery" resultType="boolean">
-  select if(count(*)>0 ,'true','false') from lolc_riotSearched_Mastery where summonerId=#{summonerId} and championId=#{championId}
-  </select>
+  
   <!-- 유저 정보  입력 -->
   <insert id="insert_user" >
   	insert into lolc_riotSearched_Member(id,accountId,puuid,name,profileIconId,revisionDate,summonerLevel) 
   	values(#{id},#{accountId},#{puuid},#{name},#{profileIconId},#{revisionDate},#{summonerLevel});
   </insert>
-  <insert id="insert_mastery" >
+  <insert id="insert_mastery" parameterType="java.util.List">
   	insert into lolc_riotSearched_Mastery(championId,championLevel,championPoints,
   	lastPlayTime,championPointsSinceLastLevel,championPointsUntilNextLevel,chestGranted,tokensEarned,summonerId) 
-  	values(#{championId},#{championLevel},#{championPoints},
-  	#{lastPlayTime},#{championPointsSinceLastLevel},#{championPointsUntilNextLevel},#{chestGranted},#{tokensEarned},#{summonerId});
+  	values
+  	<foreach collection="list" item="item" separator=",">
+  	(#{item.championId},#{item.championLevel},#{item.championPoints},
+  	#{item.lastPlayTime},#{item.championPointsSinceLastLevel},#{item.championPointsUntilNextLevel},#{item.chestGranted},#{item.tokensEarned},#{item.summonerId}) 
+  	</foreach>
+  	ON DUPLICATE KEY UPDATE  
+  	championLevel=values(championLevel),championPoints=values(championPoints),lastPlayTime=values(lastPlayTime),
+  	championPointsSinceLastLevel=values(championPointsSinceLastLevel),championPointsUntilNextLevel=values(championPointsUntilNextLevel),
+  	chestGranted=values(chestGranted),tokensEarned=values(tokensEarned) 
+  </insert>
+  <!-- 유저 리그 정보 입력 -->
+  <insert id="insert_league" parameterType="java.util.List">
+  	insert into lolc_riotSearched_League(leagueId,queueType,tier,rank,
+  	summonerId,summonerName,leaguePoints,wins,losses,veteran,inactive,freshBlood,hotStreak) 
+  	values 
+  		<foreach collection="list" item="item" separator=",">
+  		(#{item.leagueId},#{item.queueType},#{item.tier},#{item.rank},
+  		#{item.summonerId},#{item.summonerName},#{item.leaguePoints},#{item.wins},#{item.losses},
+  		#{item.veteran},#{item.inactive},#{item.freshBlood},#{item.hotStreak}) 
+  		</foreach>
+  	ON DUPLICATE KEY UPDATE 
+  	leagueId=values(leagueId),queueType=values(queueType),tier=values(tier),rank=values(rank),
+  	summonerId=values(summonerId),summonerName=values(summonerName),leaguePoints=values(leaguePoints),wins=values(wins),losses=values(losses),
+  	veteran=values(veteran),inactive=values(inactive),freshBlood=values(freshBlood),hotStreak=values(hotStreak)
   </insert>
   <!-- 유저 정보 업데이트 -->
   <update id="update_user" >
@@ -34,15 +54,10 @@
   	set name=#{name}, profileIconId=#{profileIconId},revisionDate=#{revisionDate},summonerLevel=#{summonerLevel}
   	where id=#{id};
   </update>
-  <update id="update_mastery" >
-  	update lolc_riotSearched_Mastery 
-  	set championLevel=#{championLevel}, championPoints=#{championPoints},lastPlayTime=#{lastPlayTime},
-  	championPointsSinceLastLevel=#{championPointsSinceLastLevel},championPointsUntilNextLevel=#{championPointsUntilNextLevel},
-  	chestGranted=#{chestGranted},tokensEarned=#{tokensEarned} 
-  	where championId=#{championId} and summonerId=#{summonerId}
-  </update>
  
-  
-  
+ <!-- 유저 레벨 랭킹 정보  -->
+  <select id="select_LavelRank" resultType="RiotMemberVO">
+  select * from lolc_riotSearched_Member order by summonerLevel desc limit #{page},100;
+  </select>
   </mapper>
   
