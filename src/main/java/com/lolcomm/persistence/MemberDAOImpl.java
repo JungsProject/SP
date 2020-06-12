@@ -26,4 +26,12 @@ public class MemberDAOImpl implements MemberDAO {
 		System.out.println("@@@@@ Mapper에서 DB 이동 후 처리 완료 -> 호출된 곳으로 이동");
 	}
 
+	@Override
+	public MemberVO login(MemberVO vo) throws Exception {
+		// 로그인
+		System.out.println("@@@@@ MemberDAOImpl 객체 호출 -> Mapper 이동 SQL 실행");
+		
+		return sqlSession.selectOne(namespace+".login", vo);
+	}
+
 }

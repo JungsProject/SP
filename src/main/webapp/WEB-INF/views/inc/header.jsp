@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,26 +32,16 @@
 
         <!-- 로그인, 마이페이지, 로그아웃 링크 -->
         <ul class="navbar_userlinks">
-            <%
-                //로그인 되었는지
-                String user = (String) session.getAttribute("id");
-                if(user == null){
-            %>
+            	<c:if test="${null eq member}">
                 <li> <a href="./member/login"> LOGIN </a> </li>
-            <%
-                }else if(user.equals("admin")){ 
-            %>
+            	</c:if>
+            	<c:if test="${member.permission eq 'ADMN'}">
                 <li> <a href="#"> ADMIN_PAGE </a> </li>
+                </c:if>
+                <c:if test="${null ne member}">
                 <li> <a href="#"> MYPAGE </a> </li>
                 <li> <a href="#"> LOGOUT </a> </li>
-            <% 
-                }else{ 
-            %>
-                <li> <a href="#"> MYPAGE </a> </li>
-                <li> <a href="#"> LOGOUT </a> </li>
-            <% 
-                } 
-            %> 
+                </c:if>
         </ul>
 
         <!-- <a href="#" class="navbar_toggleBtn">

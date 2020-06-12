@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Insert title here</title> 
 </head>
 <body>
 	<h1>views/member/join.jsp</h1>
@@ -29,12 +29,6 @@
 					<span class="input-gorup-text">이름</span>
 			</div>
 			<input type="text" class="form-control" name="name">
-		</div>
-		<div class="input-group">
-			<div class="input-gorup-prepend">
-					<span class="input-gorup-text">나이</span>
-			</div>
-			<input type="text" class="form-control" name="age">
 		</div>
 		<div class="input-group">
 			<div class="input-gorup-prepend">
