@@ -4,9 +4,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>챔피언 장인 랭킹 :: 롤 전적 검색 lolcomn.com  -전적 검색, 랭킹, 퀴즈</title>
 </head>
 <body>
-
+<div class="menu">
+	<ol class="MenuList">
+		<li class="Item"><a href="${pageContext.request.contextPath}/ranking/ladder">랭킹</a></li>
+		<li class="Item"><a href="${pageContext.request.contextPath}/ranking/champions">챔피언</a></li>
+		<li class="Item"><a href="${pageContext.request.contextPath}/ranking/level">레벨</a></li>
+	</ol>
+</div>
 </body>
 </html>

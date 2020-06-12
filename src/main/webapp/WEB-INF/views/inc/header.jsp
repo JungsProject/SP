@@ -18,6 +18,7 @@
         <!-- 메인메뉴  -->
         <ul class="navbar_menu">
             <li> <input type="text" name="search_name" id="search_name"> <input type="button" value="검색" onclick="search();"></li> 
+            <li> <a href="${pageContext.request.contextPath}/ranking/ladder"> 롤 랭킹 </a> 
             <li> <a href="#"> 롤퀴즈 </a> 
             	<ul>
             		<li>
