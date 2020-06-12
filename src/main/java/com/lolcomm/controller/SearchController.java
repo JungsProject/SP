@@ -37,10 +37,15 @@ public class SearchController {
 		
 		rmservice.insertMember(riotMemberVO);
 
-		String jsonString2=rioApi.riotAPI("https://kr.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/"+riotMemberVO.getId());
-		List<RiotMemberMasteryVO> masteryList= gson.fromJson(jsonString2,new TypeToken<List<RiotMemberMasteryVO>>(){}.getType());
 		
-		rmservice.insertMastery(masteryList);
+		  String jsonString2=rioApi.riotAPI(
+		  "https://kr.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/"
+		  +riotMemberVO.getId()); List<RiotMemberMasteryVO> masteryList=
+		  gson.fromJson(jsonString2,new
+		  TypeToken<List<RiotMemberMasteryVO>>(){}.getType());
+		  
+		 // rmservice.insertMastery(masteryList);  //시간을 줄여야할 필요가 있음
+		 
 		
 		return "search";
 	
