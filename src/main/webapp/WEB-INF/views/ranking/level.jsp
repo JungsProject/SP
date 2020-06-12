@@ -9,9 +9,9 @@
 <body>
 <div class="menu">
 	<ol class="MenuList">
-		<li class="Item">랭킹</li>
-		<li class="Item">챔피언</li>
-		<li class="Item">레벨</li>
+		<li class="Item"><a href="${pageContext.request.contextPath}/ranking/ladder">랭킹</a></li>
+		<li class="Item"><a href="${pageContext.request.contextPath}/ranking/champions">챔피언</a></li>
+		<li class="Item"><a href="${pageContext.request.contextPath}/ranking/level">레벨</a></li>
 	</ol>
 </div>
 	
