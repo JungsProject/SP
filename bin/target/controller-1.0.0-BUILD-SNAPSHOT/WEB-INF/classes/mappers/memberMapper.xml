@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- mapper관련 DTD 추가 
+   DTD : xml 문서(파일) 구조를 정의.
+        데이터 교환의 표준형식임.
+        데이터가 유효한 데이터인지를 판단 가능
+-->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.lolcomm.mapper.MemberMapper">
+  
+  <!-- 회원가입 -->
+  <insert id="join">
+  	insert into lolc_member(id, pass, name, nick, email, phone)
+  	values(#{id}, #{pass}, #{name}, #{nick}, #{email}, #{phone})
+  </insert>
+  
+  <!-- 로그인 -->
+  <select id="login" resultType="com.lolcomm.domain.MemberVO">
+  	select
+  		id, pass, nick, delete_yn, ban_yn, permission
+  	from
+  		lolc_member
+  	where id = #{id} and pass = #{pass} and delete_yn = 'n' and ban_yn = 'n'
+  </select>
+  
+  
+  </mapper>
+  
+  
+  
+  
+  
+  
+  

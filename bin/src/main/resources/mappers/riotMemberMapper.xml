@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- mapper관련 DTD 추가 
+   DTD : xml 문서(파일) 구조를 정의.
+        데이터 교환의 표준형식임.
+        데이터가 유효한 데이터인지를 판단 가능
+-->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.lolcomm.mapper.RiotMemberMapper">
+  
+  <!-- 회원정보 검색 -->
+  <select id="select_user" resultType="RiotMemberVO"> 
+  select * from lolc_riotSearched_Member where id=#{id};
+  </select>
+  <select id="select_mastery" resultType="boolean">
+  select if(count(*)>0 ,'true','false') from lolc_riotSearched_Mastery where summonerId=#{summonerId} and championId=#{championId}
+  </select>
+  <!-- 유저 정보  입력 -->
+  <insert id="insert_user" >
+  	insert into lolc_riotSearched_Member(id,accountId,puuid,name,profileIconId,revisionDate,summonerLevel) 
+  	values(#{id},#{accountId},#{puuid},#{name},#{profileIconId},#{revisionDate},#{summonerLevel});
+  </insert>
+  <insert id="insert_mastery" >
+  	insert into lolc_riotSearched_Mastery(championId,championLevel,championPoints,
+  	lastPlayTime,championPointsSinceLastLevel,championPointsUntilNextLevel,chestGranted,tokensEarned,summonerId) 
+  	values(#{championId},#{championLevel},#{championPoints},
+  	#{lastPlayTime},#{championPointsSinceLastLevel},#{championPointsUntilNextLevel},#{chestGranted},#{tokensEarned},#{summonerId});
+  </insert>
+  <!-- 유저 정보 업데이트 -->
+  <update id="update_user" >
+  	update lolc_riotSearched_Member 
+  	set name=#{name}, profileIconId=#{profileIconId},revisionDate=#{revisionDate},summonerLevel=#{summonerLevel}
+  	where id=#{id};
+  </update>
+  <update id="update_mastery" >
+  	update lolc_riotSearched_Mastery 
+  	set championLevel=#{championLevel}, championPoints=#{championPoints},lastPlayTime=#{lastPlayTime},
+  	championPointsSinceLastLevel=#{championPointsSinceLastLevel},championPointsUntilNextLevel=#{championPointsUntilNextLevel},
+  	chestGranted=#{chestGranted},tokensEarned=#{tokensEarned} 
+  	where championId=#{championId} and summonerId=#{summonerId}
+  </update>
+ 
+  
+  
+  </mapper>
+  
