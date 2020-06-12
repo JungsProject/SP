@@ -45,7 +45,7 @@ public class SearchController {
 		  TypeToken<List<RiotMemberMasteryVO>>(){}.getType());
 		  
 		 // rmservice.insertMastery(masteryList);  //시간을 줄여야할 필요가 있음
-		 
+		 //테스트
 		
 		return "search";
 	
