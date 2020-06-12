@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +17,8 @@
 
         <!-- 메인메뉴  -->
         <ul class="navbar_menu">
-            <li> <a href="#"> 소환사 검색(API팀) </a> </li> 
+            <li> <input type="text" name="search_name" id="search_name"> <input type="button" value="검색" onclick="search();"></li> 
+            <li> <a href="${pageContext.request.contextPath}/ranking/ladder"> 롤 랭킹 </a> 
             <li> <a href="#"> 롤퀴즈 </a> 
             	<ul>
             		<li>
@@ -31,27 +33,18 @@
 
         <!-- 로그인, 마이페이지, 로그아웃 링크 -->
         <ul class="navbar_userlinks">
-            <%
-                //로그인 되었는지
-                String user = (String) session.getAttribute("id");
-                if(user == null){
-            %>
-                <li> <a href="./member/login"> LOGIN </a> </li>
-            <%
-                }else if(user.equals("admin")){ 
-            %>
+            	<c:if test="${null eq member}">
+                <li> <a href="/member/login"> LOGIN </a> </li>
+            	</c:if>
+            	<c:if test="${member.permission eq 'ADMN'}">
                 <li> <a href="#"> ADMIN_PAGE </a> </li>
+                </c:if>
+                <c:if test="${null ne member}">
+                <small>${member.nick } 님 환영합니다.</small>
                 <li> <a href="#"> MYPAGE </a> </li>
-                <li> <a href="#"> LOGOUT </a> </li>
-            <% 
-                }else{ 
-            %>
-                <li> <a href="#"> MYPAGE </a> </li>
-                <li> <a href="#"> LOGOUT </a> </li>
-            <% 
-                } 
-            %> 
-        </ul>
+                <li> <a href="/member/logout"> LOGOUT </a> </li>
+                </c:if>
+        </ul> 
 
         <!-- <a href="#" class="navbar_toggleBtn">
             <i class="fas fa-bars"></i>
@@ -59,7 +52,14 @@
 
     </nav>
 
+<script>
 
+	function search(){
+		var data=document.getElementById("search_name").value;
+		location.href="${pageContext.request.contextPath}/summoner/"+data;
+		}
+	
+</script>
 
 
 

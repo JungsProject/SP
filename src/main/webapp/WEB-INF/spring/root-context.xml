@@ -48,8 +48,8 @@
 	    -->
 	   <property name="mapperLocations"
 	             value="classpath:mappers/**/*Mapper.xml"	   
-	   ></property>	   
-	</bean>
+	   ></property>
+	   	</bean>
 	
 	<!-- SqlSessionTemplate 객체를 생성
 	     해당 객체는 SqlSessionFactory 객체를 생성자 형태로 주입
