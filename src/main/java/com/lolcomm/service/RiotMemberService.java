@@ -14,6 +14,6 @@ public interface RiotMemberService {
 
 	public List<RiotMemberVO> getLevel_Rank();
 
-	public void insertLeague(List<RiotMemberLeague> leagueList);
+	void insertLeague(List<RiotMemberLeague> leagueList);
 
 }
