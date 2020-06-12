@@ -1,6 +1,7 @@
 package com.lolcomm.service;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 
@@ -29,6 +30,12 @@ public class MemberServiceImpl implements MemberService {
 		System.out.println("@@@@@ Service 계층 로그인 동작 실행 -> DAO 메서드 호출");
 		
 		return mdao.login(vo);
+	}
+
+	@Override
+	public void logout(HttpSession session) throws Exception {
+		// 로그아웃
+		session.invalidate();
 	}
 
 }

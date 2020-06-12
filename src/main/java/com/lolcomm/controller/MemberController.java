@@ -63,6 +63,15 @@ public class MemberController {
 		
 	}
 	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(HttpSession session) throws Exception {
+		logger.info("get logout");
+		
+		service.logout(session);
+		
+		return "redirect:/";
+	}
+	
 	// @RequestMapping(value = "매핑될 주소값",method = 호출방식)
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public void joinGET() throws Exception {

@@ -34,14 +34,15 @@
         <!-- 로그인, 마이페이지, 로그아웃 링크 -->
         <ul class="navbar_userlinks">
             	<c:if test="${null eq member}">
-                <li> <a href="./member/login"> LOGIN </a> </li>
+                <li> <a href="/member/login"> LOGIN </a> </li>
             	</c:if>
             	<c:if test="${member.permission eq 'ADMN'}">
                 <li> <a href="#"> ADMIN_PAGE </a> </li>
                 </c:if>
                 <c:if test="${null ne member}">
+                <small>${member.nick } 님 환영합니다.</small>
                 <li> <a href="#"> MYPAGE </a> </li>
-                <li> <a href="#"> LOGOUT </a> </li>
+                <li> <a href="/member/logout"> LOGOUT </a> </li>
                 </c:if>
         </ul>
 
