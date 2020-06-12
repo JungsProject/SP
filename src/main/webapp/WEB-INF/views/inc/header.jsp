@@ -44,7 +44,7 @@
                 <li> <a href="#"> MYPAGE </a> </li>
                 <li> <a href="/member/logout"> LOGOUT </a> </li>
                 </c:if>
-        </ul>
+        </ul> 
 
         <!-- <a href="#" class="navbar_toggleBtn">
             <i class="fas fa-bars"></i>
