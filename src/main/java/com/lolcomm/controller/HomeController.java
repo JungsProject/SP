@@ -23,6 +23,7 @@ public class HomeController {
 		logger.info("@@@@ / 주소호출");
 		logger.info("@@@@ home() 호출");
 		logger.info("./home.jsp 페이지 호출");
+		logger.info("test");
 		return "home";
 	}
 	
