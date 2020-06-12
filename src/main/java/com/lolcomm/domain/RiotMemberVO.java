@@ -5,8 +5,8 @@ public class RiotMemberVO {
 	String accountId;
 	String puuid;
 	String name;
-	String profileIconId;
-	String revisionDate;
+	int profileIconId;
+	int revisionDate;
 	int summonerLevel;
 	public String getId() {
 		return id;
@@ -32,16 +32,17 @@ public class RiotMemberVO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getProfileIconId() {
+	
+	public int getProfileIconId() {
 		return profileIconId;
 	}
-	public void setProfileIconId(String profileIconId) {
+	public void setProfileIconId(int profileIconId) {
 		this.profileIconId = profileIconId;
 	}
-	public String getRevisionDate() {
+	public int getRevisionDate() {
 		return revisionDate;
 	}
-	public void setRevisionDate(String revisionDate) {
+	public void setRevisionDate(int revisionDate) {
 		this.revisionDate = revisionDate;
 	}
 	public int getSummonerLevel() {

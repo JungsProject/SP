@@ -5,7 +5,7 @@ public class RiotMemberMasteryVO {
 	int championId;		//챔피언 아이디
 	int championLevel;	//챔피언 레벨
 	int championPoints;	//챔피언 마스터리 포인트
-	int lastPlayTime;	//마지막 플레이 시간
+	long lastPlayTime;	//마지막 플레이 시간
 	int championPointsSinceLastLevel;	//챔피언 레벨 까지 찍고 남은 포인트
 	int championPointsUntilNextLevel;	//다음레벨까지 남은 포인트
 	boolean chestGranted;	//챔피언 상자 부여 여부
@@ -29,10 +29,10 @@ public class RiotMemberMasteryVO {
 	public void setChampionPoints(int championPoints) {
 		this.championPoints = championPoints;
 	}
-	public int getLastPlayTime() {
+	public long getLastPlayTime() {
 		return lastPlayTime;
 	}
-	public void setLastPlayTime(int lastPlayTime) {
+	public void setLastPlayTime(long lastPlayTime) {
 		this.lastPlayTime = lastPlayTime;
 	}
 	public int getChampionPointsSinceLastLevel() {

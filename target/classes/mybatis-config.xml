@@ -8,6 +8,7 @@
    <!-- XML Mapper 사용할때  리턴되는 타입의 패키지명을 미리 설정가능 -->
    <typeAliases>
      <package name="com.kitchen.domain"/>
+     <package name="com.lolcomm.domain"/>
    </typeAliases> 
   
   </configuration>
