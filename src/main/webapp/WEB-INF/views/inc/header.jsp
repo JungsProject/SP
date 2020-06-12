@@ -17,7 +17,7 @@
 
         <!-- 메인메뉴  -->
         <ul class="navbar_menu">
-            <li> <a href="#"> 소환사 검색(API팀) </a> </li> 
+            <li> <input type="text" name="search_name" id="search_name"> <input type="button" value="검색" onclick="search();"></li> 
             <li> <a href="#"> 롤퀴즈 </a> 
             	<ul>
             		<li>
@@ -50,7 +50,14 @@
 
     </nav>
 
+<script>
 
+	function search(){
+		var data=document.getElementById("search_name").value;
+		location.href="${pageContext.request.contextPath}/summoner/"+data;
+		}
+	
+</script>
 
 
 
