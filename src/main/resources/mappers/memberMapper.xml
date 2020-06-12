@@ -16,6 +16,15 @@
   	values(#{id}, #{pass}, #{name}, #{nick}, #{email}, #{phone})
   </insert>
   
+  <!-- 로그인 -->
+  <select id="login" resultType="com.lolcomm.domain.MemberVO">
+  	select
+  		id, pass, nick, delete_yn, ban_yn, permission
+  	from
+  		lolc_member
+  	where id = #{id} and pass = #{pass} and delete_yn = 'n' and ban_yn = 'n'
+  </select>
+  
   
   </mapper>
   

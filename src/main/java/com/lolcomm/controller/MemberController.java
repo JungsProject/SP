@@ -1,12 +1,15 @@
 package com.lolcomm.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.lolcomm.domain.MemberVO;
 import com.lolcomm.service.MemberService;
@@ -34,9 +37,30 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value= "/login", method = RequestMethod.POST)
-	public String loginPOST() throws Exception {
+	public String loginPOST(MemberVO vo, HttpServletRequest req, RedirectAttributes rttr) throws Exception {
 		
-		return null;
+		HttpSession session = req.getSession();
+		
+		logger.info("### /login 주소 호출");
+		logger.info("### /컨트롤러 loginPOST() 호출");
+		
+		MemberVO login = service.login(vo);
+		
+		System.out.println("@@@컨트롤러 : 로그인 처리 완료!");
+		
+		if(login == null) {
+			// 로그인 실패
+			session.setAttribute("member", null);
+			rttr.addFlashAttribute("msg", false);
+			System.out.println(login + "로그인 실패");
+			return "redirect:/member/login";
+		} else {
+			session.setAttribute("member", login);
+			System.out.println(login + "로그인 성공");
+			
+			return "redirect:/";
+		}
+		
 	}
 	
 	// @RequestMapping(value = "매핑될 주소값",method = 호출방식)

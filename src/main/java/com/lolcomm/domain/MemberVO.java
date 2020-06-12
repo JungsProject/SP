@@ -13,6 +13,8 @@ public class MemberVO {
 	private Date reg_date;
 	private Date modify_date;
 	private String delete_yn;
+	private String ban_yn;
+	private String permission;
 	
 	public String getId() {
 		return id;
@@ -68,12 +70,25 @@ public class MemberVO {
 	public void setDelete_yn(String delete_yn) {
 		this.delete_yn = delete_yn;
 	}
+	public String getBan_yn() {
+		return ban_yn;
+	}
+	public void setBan_yn(String ban_yn) {
+		this.ban_yn = ban_yn;
+	}
+	public String getPermission() {
+		return permission;
+	}
+	public void setPermission(String permission) {
+		this.permission = permission;
+	}
 	
 	@Override
 	public String toString() {
-		return "MemberVO [id=" + id + ", pass=" + pass + ", name=" + name + ", nick=" + nick
-				+ ", email=" + email + ", phone=" + phone + ", reg_date=" + reg_date + ", modify_date=" + modify_date
-				+ ", delete_yn=" + delete_yn + "]";
+		return "MemberVO [id=" + id + ", pass=" + pass + ", name=" + name + ", nick=" + nick + ", email=" + email
+				+ ", phone=" + phone + ", reg_date=" + reg_date + ", modify_date=" + modify_date + ", delete_yn="
+				+ delete_yn + ", ban_yn=" + ban_yn + ", permission=" + permission + "]";
 	}
+	
 	
 }
