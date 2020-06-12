@@ -28,6 +28,17 @@
 						<a href="#">유저퀴즈</a>
 					</li>
 				</ul>
+            </li>
+            <!-- 게시판 -->
+            <li> <a href="#"> 게시판 </a> 
+            	<ul>
+            		<li>
+						<a href="${pageContext.request.contextPath}/board/regist">글작성</a>
+					</li>
+					<li>
+						<a href="#">게시판리스트</a>
+					</li>
+				</ul>
             </li> 
         </ul>
 
