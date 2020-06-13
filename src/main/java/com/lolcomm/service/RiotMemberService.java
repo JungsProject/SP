@@ -2,13 +2,19 @@ package com.lolcomm.service;
 
 import java.util.List;
 
+import com.lolcomm.domain.RiotMemberLeague;
 import com.lolcomm.domain.RiotMemberMasteryVO;
 import com.lolcomm.domain.RiotMemberVO;
+import com.lolcomm.domain.levelRankingVO;
 
 public interface RiotMemberService {
 	
 	public void insertMember(RiotMemberVO vo) throws Exception;
 
 	public void insertMastery(List<RiotMemberMasteryVO> masteryList);
+
+	public List<levelRankingVO> getLevel_Rank();
+
+	void insertLeague(List<RiotMemberLeague> leagueList);
 
 }
