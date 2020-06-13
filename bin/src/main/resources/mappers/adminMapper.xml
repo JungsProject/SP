@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<!-- 회원가입 -->
+<mapper namespace="com.lolcomm.mapper.AdminMapper">
+     
+ 
+    <!-- 회원 강제탈퇴관련 mapper -->
+    <delete id="admin_member_forced_evictionCheck">
+    delete from member
+    where id=#{id}
+    </delete>
+    
+ 
+</mapper>
