@@ -56,8 +56,15 @@
   </update>
  
  <!-- 유저 레벨 랭킹 정보  -->
-  <select id="select_LavelRank" resultType="RiotMemberVO">
-  select * from lolc_riotSearched_Member order by summonerLevel desc limit #{page},100;
+  <select id="select_LevelRank" resultType="RiotMemberVO">
+select member.name ,member.summonerLevel,concat(league.tier,league.rank),
+league.leaguePoints,league.wins,league.losses,floor(league.wins/(league.wins+league.losses)*100) as rating
+from lolc_riotSearched_Member as member
+join lolc_riotSearched_League as league
+on member.id=league.summonerId
+where league.queueType ='RANKED_SOLO_5x5'
+order by member.summonerLevel desc limit #{page},100;
   </select>
+ 
   </mapper>
   

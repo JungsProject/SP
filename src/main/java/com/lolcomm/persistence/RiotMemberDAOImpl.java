@@ -48,7 +48,11 @@ public class RiotMemberDAOImpl implements RiotMemberDAO{
 	@Override
 	public List<RiotMemberVO> selectLevel_Rank(int page) {
 		
-		List<RiotMemberVO> rmList= sqlSession.selectList(namespace+".select_LavelRank",page);
+		List<RiotMemberVO> rmList= sqlSession.selectList(namespace+".select_LevelRank",page);
+		for (RiotMemberVO riotMemberVO : rmList) {
+			sqlSession.selectOne(namespace+".select_Legue" , riotMemberVO.getId());
+		}
+		
 		return rmList;
 	}
 

@@ -35,6 +35,7 @@ public class RiotMemberServiceImpl implements RiotMemberService {
 		// TODO Auto-generated method stub
 		List<RiotMemberVO> rmList=rmdao.selectLevel_Rank(0);
 		
+		
 		return rmList;
 	}
 	@Override
