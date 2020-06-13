@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  
 <!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
 <!-- 회원가입 -->
-<mapper namespace="com.lolcomm.mapper.AdminMapper"> 
+<mapper namespace="com.lolcomm.mapper.adminMapper"> 
      
  
     <!-- 회원 강제탈퇴관련 mapper -->
