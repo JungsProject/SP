@@ -5,6 +5,7 @@ import java.util.List;
 import com.lolcomm.domain.RiotMemberLeague;
 import com.lolcomm.domain.RiotMemberMasteryVO;
 import com.lolcomm.domain.RiotMemberVO;
+import com.lolcomm.domain.levelRankingVO;
 
 public interface RiotMemberService {
 	
@@ -12,7 +13,7 @@ public interface RiotMemberService {
 
 	public void insertMastery(List<RiotMemberMasteryVO> masteryList);
 
-	public List<RiotMemberVO> getLevel_Rank();
+	public List<levelRankingVO> getLevel_Rank();
 
 	void insertLeague(List<RiotMemberLeague> leagueList);
 

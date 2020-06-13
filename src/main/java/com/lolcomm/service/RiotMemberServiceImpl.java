@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.lolcomm.domain.RiotMemberLeague;
 import com.lolcomm.domain.RiotMemberMasteryVO;
 import com.lolcomm.domain.RiotMemberVO;
+import com.lolcomm.domain.levelRankingVO;
 import com.lolcomm.persistence.RiotMemberDAO;
 @Service
 public class RiotMemberServiceImpl implements RiotMemberService {
@@ -31,9 +32,9 @@ public class RiotMemberServiceImpl implements RiotMemberService {
 
 	}
 	@Override
-	public List<RiotMemberVO> getLevel_Rank() {
+	public List<levelRankingVO> getLevel_Rank() {
 		// TODO Auto-generated method stub
-		List<RiotMemberVO> rmList=rmdao.selectLevel_Rank(0);
+		List<levelRankingVO> rmList=rmdao.selectLevel_Rank(0);
 		
 		
 		return rmList;

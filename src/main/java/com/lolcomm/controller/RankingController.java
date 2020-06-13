@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.lolcomm.domain.RiotMemberLeague;
 import com.lolcomm.domain.RiotMemberVO;
+import com.lolcomm.domain.levelRankingVO;
 import com.lolcomm.service.RiotMemberService;
 
 @Controller
@@ -37,7 +38,7 @@ public class RankingController {
 	@RequestMapping(value = "/level", method = RequestMethod.GET)
 	public void level(Model model) throws Exception {
 		
-		List<RiotMemberVO> rmList=(List<RiotMemberVO>) rmservice.getLevel_Rank();
+		List<levelRankingVO> rmList=(List<levelRankingVO>) rmservice.getLevel_Rank();
 		
 		model.addAttribute("rmList",rmList);
 		logger.info("@@@ /level get 주소 호출");

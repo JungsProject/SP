@@ -5,6 +5,7 @@ import java.util.List;
 import com.lolcomm.domain.RiotMemberLeague;
 import com.lolcomm.domain.RiotMemberMasteryVO;
 import com.lolcomm.domain.RiotMemberVO;
+import com.lolcomm.domain.levelRankingVO;
 
 public interface RiotMemberDAO {
 	
@@ -20,7 +21,7 @@ public interface RiotMemberDAO {
 
 	public void insertMastery(List<RiotMemberMasteryVO> masteryList);
 
-	public List<RiotMemberVO> selectLevel_Rank(int page);
+	public List<levelRankingVO> selectLevel_Rank(int page);
 
 	public void insertLeague(List<RiotMemberLeague> leagueList);
 }

@@ -31,8 +31,8 @@
 	<th>${status.index+1}</th>
 	<th>${rmVO.name }</th>
 	<th>LV ${rmVO.summonerLevel }</th>
-	<th>${rmVO.summonerLevel }</th>
-	<th>${rmVO.summonerLevel }</th>
+	<th>${rmVO.tier }(${rmVO.leaguePoints})</th>
+	<th>${rmVO.wins}승 ${rmVO.losses}패 승률${rmVO.rating }</th>
 	</tr>
 </c:forEach>
 	</table>

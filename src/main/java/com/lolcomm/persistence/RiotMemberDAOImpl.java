@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.lolcomm.domain.RiotMemberLeague;
 import com.lolcomm.domain.RiotMemberMasteryVO;
 import com.lolcomm.domain.RiotMemberVO;
+import com.lolcomm.domain.levelRankingVO;
 @Repository
 public class RiotMemberDAOImpl implements RiotMemberDAO{
 	
@@ -46,12 +47,10 @@ public class RiotMemberDAOImpl implements RiotMemberDAO{
 
 	
 	@Override
-	public List<RiotMemberVO> selectLevel_Rank(int page) {
+	public List<levelRankingVO> selectLevel_Rank(int page) {
 		
-		List<RiotMemberVO> rmList= sqlSession.selectList(namespace+".select_LevelRank",page);
-		for (RiotMemberVO riotMemberVO : rmList) {
-			sqlSession.selectOne(namespace+".select_Legue" , riotMemberVO.getId());
-		}
+		List<levelRankingVO> rmList= sqlSession.selectList(namespace+".select_LevelRank",page);
+		
 		
 		return rmList;
 	}
