@@ -16,15 +16,12 @@ import com.lolcomm.service.AdminService;
 @Controller
 @RequestMapping("/admin/*")
 public class AdminController {
-
+	 
+	private static final Logger logger= 
+		        LoggerFactory.getLogger(MemberController.class);  //로깅을 위한 변수
+		        
 	 @Inject    //서비스를 호출하기 위해서 의존성을 주입	   
 	 private AdminService adminservice;
-	 
-	    
-	        private static final Logger logger= 
-	        LoggerFactory.getLogger(MemberController.class);  //로깅을 위한 변수
-	        
-	    
 	    
 	    //관리자로 로그인 후에 강제 탈퇴시킬 회원의 아이디를 입력후 강제탈퇴 버튼을 누르면 연결되는 메소드
 	    @RequestMapping(value="/admin_delete", method=RequestMethod.GET)
@@ -43,24 +40,8 @@ public class AdminController {
 	    	//유저의 아이디를 삭제 (강제탈퇴) 시키기위해서 vo에 담는다.
 	    	
 	    	//회원탈퇴 체크를 하기위한 메소드, 탈퇴 시키려는 회원의 아이디가 있는지 검사한후에 result 변수에 저장한다.
-	    	adminservice.admin_member_forced_evictionCheck(vo);
-	    	
-	    	
-	    	
-//	        MODELANDVIEW MAV = NEW MODELANDVIEW();
-//	        
-//	        IF(VO.GETID() != NULL) {    //회원 강제탈퇴가 성공했을시 출력되는 뷰
-//	            
-//	            MAV.SETVIEWNAME("HOME");
-//	            
-//	            MAV.ADDOBJECT("MESSAGE", "회원이 정상적으로 강제탈퇴 처리 되었습니다.");
-//	            
-//	        }ELSE {
-//	            
-//	            MAV.SETVIEWNAME("ADMIN/ADMIN_MEMBER_FORCED_EVICTION_VIEW");
-//	            
-//	            MAV.ADDOBJECT("MESSAGE", "회원 목록에 없는 회원입니다. 다시 확인해주세요.");
-//	        }
+	    	adminservice.admin_delete(vo);
+	    	System.out.println("@@@회원 강제탈퇴 완료!");
 	    	
 	    }
 	

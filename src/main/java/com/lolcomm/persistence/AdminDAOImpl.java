@@ -18,7 +18,7 @@ public class AdminDAOImpl implements AdminDAO{
     
     //회원 강제탈퇴 관련 메소드 구현
     @Override
-    public void admin_member_forced_evictionCheck(MemberVO vo) throws Exception{
+    public void admin_delete(MemberVO vo) throws Exception{
         
             sqlSession.delete(namespace+".delete", vo);
  

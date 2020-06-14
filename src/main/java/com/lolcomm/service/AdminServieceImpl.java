@@ -16,9 +16,9 @@ public class AdminServieceImpl implements AdminService{
     
     //회원 강제탈퇴 관련 메소드
     @Override
-    public void admin_member_forced_evictionCheck(MemberVO vo) throws Exception{
+    public void admin_delete(MemberVO vo) throws Exception{
  
-        adao.admin_member_forced_evictionCheck(vo);
+        adao.admin_delete(vo);
         
     }
  

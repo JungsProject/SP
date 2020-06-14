@@ -48,7 +48,7 @@
                 <li> <a href="/member/login"> LOGIN </a> </li>
             	</c:if>
             	<c:if test="${member.permission eq 'ADMN'}">
-                <li> <a href="#"> ADMIN_PAGE </a> </li>
+                <li> <a href="/admin/adminPage"> ADMIN_PAGE </a> </li>
                 </c:if>
                 <c:if test="${null ne member}">
                 <small>${member.nick } 님 환영합니다.</small>
