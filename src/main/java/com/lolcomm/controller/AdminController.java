@@ -1,5 +1,7 @@
 package com.lolcomm.controller;
 
+import java.util.Date;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -44,5 +46,17 @@ public class AdminController {
 	    	System.out.println("@@@회원 강제탈퇴 완료!");
 	    	
 	    }
+	    
+	  // 관리자 로그인시 관리자 메인페이지로 이동  
+	  @RequestMapping(value="/adminPage", method=RequestMethod.GET)  
+	  private void adminPage_GET ()throws Exception{
+		  logger.info(" adminPage_GET 호출 @@");
+	  }
 	
+	  @RequestMapping(value="/adminPage", method=RequestMethod.POST)  
+	  private void adminPage_POST ()throws Exception{
+		  logger.info(" adminPage_POST 호출 @@");
+	  }
+	
+	  
 }

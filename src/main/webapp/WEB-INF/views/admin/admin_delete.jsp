@@ -13,6 +13,7 @@ width=device-width" />
 <title>Insert title here</title>
  
 </head>
+<jsp:include page="../inc/A_header.jsp" />
 
 <center>
 <table border="1" width="200">
@@ -44,6 +45,8 @@ width=device-width" />
 </tr>
 </table>
 </center>
+
+<jsp:include page="../inc/A_footer.jsp" />
 </body>
  
 <!-- 로그인 실패나 성공시 메시지를 받아서 출력하는 자바스크립트 구문 -->
