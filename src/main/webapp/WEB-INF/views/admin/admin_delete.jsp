@@ -26,10 +26,10 @@ width=device-width" />
  
 <center>
 <!-- 로그인창 -->
-<form action ="admin_member_forced_eviction" method = "post">
+<form method = "post">
 <center>
 <br>
--회원 아이디- <input type = "text" name="user_id" placeholder="  탈퇴시킬 회원의 아이디를 입력하세요. "><br><br>
+-회원 아이디- <input type = "text" name="id" placeholder="  탈퇴시킬 회원의 아이디를 입력하세요. "><br><br>
 <button type = "submit" name = "submit" > 회원 강제 탈퇴</button>
  
 <br>
