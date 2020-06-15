@@ -47,12 +47,14 @@
             	<c:if test="${null eq member}">
                 <li> <a href="${pageContext.request.contextPath}/member/login"> LOGIN </a> </li>
             	</c:if>
-            	<c:if test="${member.permission eq 'ADMN'}">
-                <li> <a href="${pageContext.request.contextPath}/admin/adminPage"> ADMIN_PAGE </a> </li>
-                </c:if>
                 <c:if test="${null ne member}">
                 <small>${member.nick } 님 환영합니다.</small>
+                <c:if test="${member.permission eq 'USR'}">
                 <li> <a href="#"> MYPAGE </a> </li>
+                </c:if>
+                <c:if test="${member.permission eq 'ADMN'}">
+                <li> <a href="${pageContext.request.contextPath}/admin/adminPage"> ADMIN_PAGE </a> </li>
+                </c:if>
                 <li> <a href="${pageContext.request.contextPath}/member/logout"> LOGOUT </a> </li>
                 </c:if>
         </ul> 

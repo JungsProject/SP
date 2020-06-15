@@ -1,5 +1,7 @@
 package com.lolcomm.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -21,5 +23,11 @@ public class AdminServieceImpl implements AdminService{
         adao.admin_delete(vo);
         
     }
- 
+    //회원 정보 검색 메소드
+    @Override
+    public List<MemberVO> find_member_info(String id) throws Exception {
+        
+        return adao.member_info(id);
+    }
+
 }

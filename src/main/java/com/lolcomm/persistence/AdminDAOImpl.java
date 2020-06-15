@@ -1,5 +1,7 @@
 package com.lolcomm.persistence;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -24,4 +26,11 @@ public class AdminDAOImpl implements AdminDAO{
  
     }
  
+    //회원의 정보를 리턴함
+    @Override
+    public List<MemberVO> member_info(String id) throws Exception {
+        
+        return sqlSession.selectList(namespace+".selectList", id);
+    }
+
 }

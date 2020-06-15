@@ -19,7 +19,8 @@
         <ul class="navbar_menu">
             <li> <input type="text" name="search_name" id="search_name"> <input type="button" value="검색" onclick="search();"></li> 
             <li> <a href="${pageContext.request.contextPath}/admin/admin_delete"> 불량회원 강제 벤 </a> 
-            <li> <a href="#"> 회원 정보 검색 </a> 
+            <li> <a href="${pageContext.request.contextPath}/admin/member_info"> 회원 정보 검색 </a> 
+            <li> <a href="#"> 전체 퀴즈 관리 </a> 
             	<ul>
             		<li>
 						<a href="#">기본퀴즈 관리</a>
@@ -45,15 +46,15 @@
         <!-- 로그인, 마이페이지, 로그아웃 링크 -->
         <ul class="navbar_userlinks">
             	<c:if test="${null eq member}">
-                <li> <a href="/member/login"> LOGIN </a> </li>
+                <li> <a href="${pageContext.request.contextPath}/member/login"> LOGIN </a> </li>
             	</c:if>
             	<c:if test="${member.permission eq 'ADMN'}">
-                <li> <a href="/admin/adminPage"> ADMIN_PAGE </a> </li>
+                <li> <a href="${pageContext.request.contextPath}/admin/adminPage"> ADMIN_PAGE </a> </li>
                 </c:if>
                 <c:if test="${null ne member}">
                 <small>${member.nick } 님 환영합니다.</small>
                 <li> <a href="#"> MYPAGE </a> </li>
-                <li> <a href="/member/logout"> LOGOUT </a> </li>
+                <li> <a href="${pageContext.request.contextPath}/member/logout"> LOGOUT </a> </li>
                 </c:if>
         </ul> 
 

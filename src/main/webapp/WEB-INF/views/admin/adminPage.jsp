@@ -7,11 +7,11 @@
 	<title>admin</title>
 </head>
 <body>
-<jsp:include page="../inc/A_header.jsp" />
+<jsp:include page="../inc/header.jsp" />
 <hr>
 <h1>Admin Page 입니다.</h1>
 <hr>
 
-<jsp:include page="../inc/A_footer.jsp" />
+<jsp:include page="../inc/footer.jsp" />
 </body>
 </html>
