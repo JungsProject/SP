@@ -13,7 +13,7 @@ width=device-width" />
 <title>불량 회원 강제 벤</title>
  
 </head>
-<jsp:include page="../inc/A_header.jsp" />
+<jsp:include page="../inc/header.jsp" />
 
 <center>
 <table border="1" width="200">
@@ -46,7 +46,7 @@ width=device-width" />
 </table>
 </center>
 
-<jsp:include page="../inc/A_footer.jsp" />
+<jsp:include page="../inc/footer.jsp" />
 </body>
  
 <!-- 로그인 실패나 성공시 메시지를 받아서 출력하는 자바스크립트 구문 -->

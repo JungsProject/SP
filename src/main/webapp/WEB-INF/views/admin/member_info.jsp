@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<%@ include file="../inc/A_header.jsp"%>
+<%@ include file="../inc/header.jsp"%>
 
 <!-- 회원정보에 없는 아이디를 입력할 시에 출력되는 경고창 -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -78,6 +78,6 @@ $(function(){
  
  
  
-<br><br><%@ include file="../inc/A_footer.jsp"%>
+<br><br><%@ include file="../inc/footer.jsp"%>
 </body>
 </html>
