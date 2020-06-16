@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.Gson;
@@ -24,17 +25,21 @@ import com.lolcomm.service.RiotMemberService;
 public class SearchController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(SearchController.class);
+	
 	@Inject
 	private RiotMemberService rmservice;
-	@RequestMapping(value = "/{UserName}")
+	
+	@RequestMapping(value = "/{UserName}", method=RequestMethod.GET)
 	public String summoner(@PathVariable("UserName") String UserName,Model model) throws Exception {
 		logger.info("@@@ /summoner get 주소 호출");
 		logger.info("@@@ 컨트롤러 sumonner() 호출");
 		logger.info("./summoner/search.jsp 페이지 호출");
+		
 		Gson gson =new Gson();
 		RiotAPI riotApi =new RiotAPI();
 		
 		String jsonString=riotApi.riotAPI("https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+UserName);
+		
 		RiotMemberVO riotMemberVO=gson.fromJson(jsonString, RiotMemberVO.class);
 		
 		rmservice.insertMember(riotMemberVO);
@@ -43,16 +48,24 @@ public class SearchController {
 		  String jsonString2=riotApi.riotAPI(
 		  "https://kr.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/"
 		  +riotMemberVO.getId()); 
+		  
 		  List<RiotMemberMasteryVO> masteryList=
-		  gson.fromJson(jsonString2,new
-		  TypeToken<List<RiotMemberMasteryVO>>(){}.getType());
+		  
+				  gson.fromJson(jsonString2,new
+		  
+						  TypeToken<List<RiotMemberMasteryVO>>(){}.getType());
+		  
 		  
 		  rmservice.insertMastery(masteryList);  //시간을 줄여야할 필요가 있음
-		 //테스트
+		 
+		  //테스트
 		 String jsonString3=riotApi.riotAPI("https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/"+riotMemberVO.getId());
+		 
 		 List<RiotMemberLeague> LeagueList= gson.fromJson(jsonString3, new TypeToken<List<RiotMemberLeague>>() {}.getType());
-		  logger.info(LeagueList.toString());
-		  rmservice.insertLeague(LeagueList);
+		 
+		 	logger.info(LeagueList.toString());
+		 	
+		 	rmservice.insertLeague(LeagueList);
 		  
 		model.addAttribute("UserName",UserName);
 		  
