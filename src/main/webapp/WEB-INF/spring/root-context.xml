@@ -63,19 +63,13 @@
 	       ref="sqlSessionFactory"  />
 	 </bean>
 	 
-	 <context:component-scan 
-		 base-package="com.lolcomm.domain" />
-	
-	<!-- Repository 어노테이션을 설정하고,
+	 <!-- Repository 어노테이션을 설정하고,
 	       설정파일에서 스캔하도록 설정 -->
-	<context:component-scan 
-	     base-package="com.lolcomm.persistence" />
-
-	<!-- Repository 어노테이션을 설정하고,
-	       설정파일에서 스캔하도록 설정 -->
-	<context:component-scan 
-	     base-package="com.lolcomm.service" />
-	
-	
+	<context:component-scan base-package="com.lolcomm.domain" />
+	<context:component-scan base-package="com.lolcomm.persistence" />
+	<context:component-scan base-package="com.lolcomm.service" />
+	<context:component-scan base-package="com.lolcomm.utils" />
+	     
+	     
 	
 </beans>

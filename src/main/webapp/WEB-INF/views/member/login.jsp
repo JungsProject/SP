@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<jsp:include page="../inc/header.jsp"/>
 	<h1>views/member/login.jsp</h1>
 	
 	<fieldset>

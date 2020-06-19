@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+@import url(https://fonts.googleapis.com/earlyaccess/jejugothic.css);
+@font-face { font-family: 'InfinitySans-RegularA1'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/InfinitySans-RegularA1.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+.input-group, .btn, div {
+ font-family:'InfinitySans-RegularA1';
+ margin-bottom: 5px;
+}
+
+.input-group-text {
+ width: 150px;
+}
+
+/* .1, .2, .3, .4 {
+ margin-right: 30px;
+} */
+
+
+.legend {
+margin-top: 60px;
+text-align: center;
+}
+
+.Btn {
+text-align: center;
+margin-top: 30px;
+margin-bottom: 70px;
+}
+
+.Btn button {
+margin-left: 5px;
+margin-right: 5px;
+}
+

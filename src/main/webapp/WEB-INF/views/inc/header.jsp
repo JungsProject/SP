@@ -6,6 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 <body>
 <nav class="navbar">
@@ -25,7 +30,7 @@
 						<a href="#">기본퀴즈</a>
 					</li>
 					<li>
-						<a href="#">유저퀴즈</a>
+						<a href="${pageContext.request.contextPath}/userquiz/regist">유저퀴즈</a>
 					</li>
 				</ul>
             </li>

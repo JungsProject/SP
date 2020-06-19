@@ -13,38 +13,38 @@
 		<legend>회원가입</legend>
 		<form action="./join" method="post">
 		<div class="input-group">
-			<div class="input-gorup-prepend">
-					<span class="input-gorup-text">아이디</span>
+			<div class="input-group-prepend">
+					<span class="input-group-text">아이디</span>
 			</div>
 			<input type="text" class="form-control" name="id">
 		</div>
 		<div class="input-group">
-			<div class="input-gorup-prepend">
-					<span class="input-gorup-text">비밀번호</span>
+			<div class="input-group-prepend">
+					<span class="input-group-text">비밀번호</span>
 			</div>
 			<input type="password" class="form-control" name="pass">
 		</div>
 		<div class="input-group">
-			<div class="input-gorup-prepend">
-					<span class="input-gorup-text">이름</span>
+			<div class="input-group-prepend">
+					<span class="input-group-text">이름</span>
 			</div>
 			<input type="text" class="form-control" name="name">
 		</div>
 		<div class="input-group">
-			<div class="input-gorup-prepend">
-					<span class="input-gorup-text">닉네임</span>
+			<div class="input-group-prepend">
+					<span class="input-group-text">닉네임</span>
 			</div>
 			<input type="text" class="form-control" name="nick">
 		</div>
 		<div class="input-group">
-			<div class="input-gorup-prepend">
-					<span class="input-gorup-text">이메일</span>
+			<div class="input-group-prepend">
+					<span class="input-group-text">이메일</span>
 			</div>
 			<input type="email" class="form-control" name="email">
 		</div>
 		<div class="input-group">
-			<div class="input-gorup-prepend">
-					<span class="input-gorup-text">연락처</span>
+			<div class="input-group-prepend">
+					<span class="input-group-text">연락처</span>
 			</div>
 			<input type="text" class="form-control" name="phone">
 		</div>
