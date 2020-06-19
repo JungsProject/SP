@@ -57,7 +57,7 @@
 						<a href="#">기본퀴즈 관리</a>
 					</li>
 					<li>
-						<a href="#">유저퀴즈 관리</a>
+						<a href="${pageContext.request.contextPath}/userquiz/regist">유저퀴즈 관리</a>
 					</li>
 				</ul>
             </li>
