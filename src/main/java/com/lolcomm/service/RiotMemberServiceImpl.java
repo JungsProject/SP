@@ -6,8 +6,10 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.lolcomm.domain.RiotMemberLeague;
 import com.lolcomm.domain.RiotMemberMasteryVO;
 import com.lolcomm.domain.RiotMemberVO;
+import com.lolcomm.domain.levelRankingVO;
 import com.lolcomm.persistence.RiotMemberDAO;
 @Service
 public class RiotMemberServiceImpl implements RiotMemberService {
@@ -26,15 +28,21 @@ public class RiotMemberServiceImpl implements RiotMemberService {
 	}
 	@Override
 	public void insertMastery(List<RiotMemberMasteryVO> masteryList) {
-		for (RiotMemberMasteryVO riotMemberMasteryVO : masteryList) {
-			boolean check=rmdao.selectMastery(riotMemberMasteryVO);
-			if(check) 
-				rmdao.updateMastery(riotMemberMasteryVO);
-			else 
-				rmdao.insertMasery(riotMemberMasteryVO);
-			
-		}
+		rmdao.insertMastery(masteryList);
+
+	}
+	@Override
+	public List<levelRankingVO> getLevel_Rank() {
+		// TODO Auto-generated method stub
+		List<levelRankingVO> rmList=rmdao.selectLevel_Rank(0);
 		
+		
+		return rmList;
+	}
+	@Override
+	public void insertLeague(List<RiotMemberLeague> leagueList) {
+		// TODO Auto-generated method stub
+		rmdao.insertLeague(leagueList);
 	}
 
 

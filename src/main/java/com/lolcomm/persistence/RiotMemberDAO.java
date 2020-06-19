@@ -1,7 +1,11 @@
 package com.lolcomm.persistence;
 
+import java.util.List;
+
+import com.lolcomm.domain.RiotMemberLeague;
 import com.lolcomm.domain.RiotMemberMasteryVO;
 import com.lolcomm.domain.RiotMemberVO;
+import com.lolcomm.domain.levelRankingVO;
 
 public interface RiotMemberDAO {
 	
@@ -11,9 +15,13 @@ public interface RiotMemberDAO {
 	
 	public RiotMemberVO selectMember(RiotMemberVO vo) throws Exception;
 
-	public boolean selectMastery(RiotMemberMasteryVO riotMemberMasteryVO);
 
-	public void updateMastery(RiotMemberMasteryVO riotMemberMasteryVO);
 
-	public void insertMasery(RiotMemberMasteryVO riotMemberMasteryVO);
+	
+
+	public void insertMastery(List<RiotMemberMasteryVO> masteryList);
+
+	public List<levelRankingVO> selectLevel_Rank(int page);
+
+	public void insertLeague(List<RiotMemberLeague> leagueList);
 }

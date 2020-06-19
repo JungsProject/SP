@@ -2,15 +2,15 @@ package com.lolcomm.domain;
 
 public class RiotMemberMasteryVO {
 
-	int championId;		//챔피언 아이디
-	int championLevel;	//챔피언 레벨
-	int championPoints;	//챔피언 마스터리 포인트
-	long lastPlayTime;	//마지막 플레이 시간
-	int championPointsSinceLastLevel;	//챔피언 레벨 까지 찍고 남은 포인트
-	int championPointsUntilNextLevel;	//다음레벨까지 남은 포인트
-	boolean chestGranted;	//챔피언 상자 부여 여부
-	int tokensEarned;		//획득한 마스터레벨 토큰수 
-	String summonerId;		//사용자 서모너 아이디
+	private int championId;		//챔피언 아이디
+	private int championLevel;	//챔피언 레벨
+	private int championPoints;	//챔피언 마스터리 포인트
+	private long lastPlayTime;	//마지막 플레이 시간
+	private int championPointsSinceLastLevel;	//챔피언 레벨 까지 찍고 남은 포인트
+	private int championPointsUntilNextLevel;	//다음레벨까지 남은 포인트
+	private boolean chestGranted;	//챔피언 상자 부여 여부
+	private int tokensEarned;		//획득한 마스터레벨 토큰수 
+	private String summonerId;		//사용자 서모너 아이디
 	public int getChampionId() {
 		return championId;
 	}

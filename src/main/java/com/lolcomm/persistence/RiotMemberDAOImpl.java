@@ -1,12 +1,16 @@
 package com.lolcomm.persistence;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.lolcomm.domain.RiotMemberLeague;
 import com.lolcomm.domain.RiotMemberMasteryVO;
 import com.lolcomm.domain.RiotMemberVO;
+import com.lolcomm.domain.levelRankingVO;
 @Repository
 public class RiotMemberDAOImpl implements RiotMemberDAO{
 	
@@ -40,20 +44,32 @@ public class RiotMemberDAOImpl implements RiotMemberDAO{
 		return rmvo;
 	}
 
+
+	
 	@Override
-	public boolean selectMastery(RiotMemberMasteryVO riotMemberMasteryVO) {
-		boolean check=sqlSession.selectOne(namespace+".select_mastery",riotMemberMasteryVO);
-		return check;
+	public List<levelRankingVO> selectLevel_Rank(int page) {
+		
+		List<levelRankingVO> rmList= sqlSession.selectList(namespace+".select_LevelRank",page);
+		
+		
+		return rmList;
 	}
 
 	@Override
-	public void updateMastery(RiotMemberMasteryVO riotMemberMasteryVO) {
-		sqlSession.update(namespace+".update_mastery",riotMemberMasteryVO);
+	public void insertMastery(List<RiotMemberMasteryVO> masteryList) {
+		
+			sqlSession.insert(namespace+".insert_mastery",masteryList);
+			
+		
+		
 	}
 
 	@Override
-	public void insertMasery(RiotMemberMasteryVO riotMemberMasteryVO) {
-		sqlSession.insert(namespace+".insert_mastery",riotMemberMasteryVO);
+	public void insertLeague(List<RiotMemberLeague> leagueList) {
+		sqlSession.insert(namespace+".insert_league",leagueList);
+		
 	}
+
+	
 
 }
