@@ -99,7 +99,7 @@
 <script>
 
 	function search(){
-		var data=document.getElementById("search_name").value;
+		var data = document.getElementById("search_name").value;
 		location.href="${pageContext.request.contextPath}/summoner/"+data;
 		}
 	
