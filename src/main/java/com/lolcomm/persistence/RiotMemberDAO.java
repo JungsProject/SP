@@ -2,7 +2,7 @@ package com.lolcomm.persistence;
 
 import java.util.List;
 
-import com.lolcomm.domain.PagingVO;
+import com.lolcomm.domain.PageMakerVO;
 import com.lolcomm.domain.RiotMemberLeagueRankVO;
 import com.lolcomm.domain.RiotMemberLeagueVO;
 import com.lolcomm.domain.RiotMemberMasteryVO;
@@ -31,7 +31,7 @@ public interface RiotMemberDAO {
 
 	public void insertTierLeague(RiotRankVO tier);
 
-	public List<ladderVO> select_ladder(PagingVO vo);
+	public List<ladderVO> select_ladder(PageMakerVO vo);
 
 	public int ladderCount();
 

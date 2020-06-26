@@ -2,7 +2,7 @@ package com.lolcomm.service;
 
 import java.util.List;
 
-import com.lolcomm.domain.PagingVO;
+import com.lolcomm.domain.PageMakerVO;
 import com.lolcomm.domain.RiotMemberLeagueRankVO;
 import com.lolcomm.domain.RiotMemberLeagueVO;
 import com.lolcomm.domain.RiotMemberMasteryVO;
@@ -23,7 +23,7 @@ public interface RiotMemberService {
 
 	public void insertTierLeague(RiotRankVO tier);
 
-	public List<ladderVO> select_ladder(PagingVO vo);
+	public List<ladderVO> select_ladder(PageMakerVO vo);
 	//리그 회원아이디 가져오기
 
 	public int ladderCount();

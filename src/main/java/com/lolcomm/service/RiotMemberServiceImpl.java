@@ -1,6 +1,6 @@
 package com.lolcomm.service;
 
-import java.util.Collection;
+
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -9,8 +9,8 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
-import com.lolcomm.domain.PagingVO;
-import com.lolcomm.domain.RiotMemberLeagueRankVO;
+import com.lolcomm.domain.PageMakerVO;
+
 import com.lolcomm.domain.RiotMemberLeagueVO;
 import com.lolcomm.domain.RiotMemberMasteryVO;
 import com.lolcomm.domain.RiotMemberVO;
@@ -74,7 +74,7 @@ public class RiotMemberServiceImpl implements RiotMemberService {
 		
 	}
 	@Override
-	public List<ladderVO> select_ladder(PagingVO vo) {
+	public List<ladderVO> select_ladder(PageMakerVO vo) {
 		// TODO Auto-generated method stub
 		List<ladderVO> ranking=rmdao.select_ladder(vo);
 		return ranking;

@@ -15,6 +15,10 @@
 		<li class="Item"><a href="${pageContext.request.contextPath}/ranking/level">레벨</a></li>
 	</ol>
 </div>
+<div class="content">
+	
+</div>
+
 <jsp:include page="../inc/footer.jsp"/>
 </body>
 </html>

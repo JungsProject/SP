@@ -29,7 +29,7 @@
 
 <c:forEach items="${rankList}" var="rmVO" varStatus="status">
 	<tr>
-	<th>${status.count+(page-1)*100}</th>
+	<th>${status.count+(pageMaker.cri.page-1)*100}</th>
 	<th>${rmVO.summonerName}</th>
 	<th>${rmVO.tier}</th>
 	<th>${rmVO.leaguePoints}</th>
@@ -39,22 +39,21 @@
 	</table>
 </div>
 <div class="paging">
-	<c:if test="${pagingVO.startPage !=1 }">
-		<a href="./${pagingVO.startPage - 1 }"><</a>
-	</c:if>
-	<c:forEach begin="${pagingVO.startPage }" end="${pagingVO.endPage }" var="p">
-			<c:choose>
-				<c:when test="${p == pagingVO.nowPage }">
-					<b>${p }</b>
-				</c:when>
-				<c:when test="${p != pagingVO.nowPage }">
-					<a href="./${p }">${p }</a>
-				</c:when>
-			</c:choose>
+		<li>
+	<c:if test="${pageMaker.prev }">
+			<a href='<c:url value="./${pageMaker.startPage-1 }"/>'><i class="fa left">◀</i></a>	
+
+		</c:if>
+	
+		<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="pageNum" >
+			<a href="./${pageNum}"><i class="fa">${pageNum }</i></a>
 		</c:forEach>
-	<c:if test="${pagingVO.endPage != pagingVO.lastPage}">
-		<a href="./${pagingVO.endPage + 1 }">></a>
+	
+		<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+	
+			<a href="./${pageMaker.endPage+1 }"><i class="fa right">▶</i></a>
 	</c:if>
+	</li>
 </div>
 <jsp:include page="../inc/footer.jsp"/>
 </body>

@@ -89,12 +89,12 @@ order by member.summonerLevel desc limit 0,100;
   
   <!-- 랭킹정보 페이징 처리 -->
  <!-- 랭킹정보 리스트 100개 -->
- <select id="select_ladder" resultType="ladderVO" parameterType="PagingVO">
+ <select id="select_ladder" resultType="ladderVO" parameterType="PageMakerVO">
 select  summonerName , concat(tier,' ',rank) as tier,LeaguePoints,wins,losses,Round(wins/(wins+losses)*100,0) as winratio
 from lolc_riotSearched_League League 
 order by field(tier,'CHALLENGER','GRANDMASTER','MASTER','DIAMOND','PLATINUM','GOLD','SILVER','BRONZE','IRON'),
 rank ,tier asc, leaguePoints desc 
-limit #{start},#{cntPerPage};
+limit #{cri.pageStart},100;
  </select>
 
 

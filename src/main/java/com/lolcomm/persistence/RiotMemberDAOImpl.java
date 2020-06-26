@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.lolcomm.domain.PagingVO;
+import com.lolcomm.domain.PageMakerVO;
 import com.lolcomm.domain.RiotMemberLeagueRankVO;
 import com.lolcomm.domain.RiotMemberLeagueVO;
 import com.lolcomm.domain.RiotMemberMasteryVO;
@@ -82,7 +82,7 @@ public class RiotMemberDAOImpl implements RiotMemberDAO{
 	}
 
 	@Override
-	public List<ladderVO> select_ladder(PagingVO vo) {
+	public List<ladderVO> select_ladder(PageMakerVO vo) {
 		// TODO Auto-generated method stub
 		
 		List<ladderVO> ranking=sqlSession.selectList(namespace+".select_ladder",vo);

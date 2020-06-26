@@ -17,7 +17,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 import com.lolcomm.api.RiotAPI;
-import com.lolcomm.domain.PagingVO;
+import com.lolcomm.domain.PageMakerVO;
+import com.lolcomm.domain.Criteria;
 import com.lolcomm.domain.RiotMemberLeagueRankVO;
 import com.lolcomm.domain.RiotMemberLeagueVO;
 import com.lolcomm.domain.RiotMemberVO;
@@ -63,11 +64,15 @@ public class RankingController {
 	@RequestMapping(value = "/ladder/{page}", method = RequestMethod.GET)
 	public String ladder(@PathVariable("page") int page,Model model) throws Exception {
 		int total= rmservice.ladderCount();
-		PagingVO pagingVO =new PagingVO(total,page,100);
-		List<ladderVO> ranking=rmservice.select_ladder(pagingVO);
+		Criteria cri =new Criteria();
+		cri.setPage(page);
+		PageMakerVO pageMaker =new PageMakerVO();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(total);
+		List<ladderVO> ranking=rmservice.select_ladder(pageMaker);
 		logger.info(ranking.toString());
 		model.addAttribute("rankList",ranking);
-		model.addAttribute("pagingVO",pagingVO);
+		model.addAttribute("pageMaker",pageMaker);
 		logger.info(ranking.toString());
 		logger.info("@@@ /ladder get 주소 호출");
 		logger.info("@@@ 컨트롤러 ladder() 호출");
