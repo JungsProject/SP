@@ -15,6 +15,7 @@
 		<maven-jar-plugin.version>3.6.3</maven-jar-plugin.version>
 	</properties>
 	<dependencies>
+	
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>

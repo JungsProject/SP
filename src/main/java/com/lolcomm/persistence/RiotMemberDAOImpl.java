@@ -4,12 +4,17 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.lolcomm.domain.RiotMemberLeague;
+import com.lolcomm.domain.PagingVO;
+import com.lolcomm.domain.RiotMemberLeagueRankVO;
+import com.lolcomm.domain.RiotMemberLeagueVO;
 import com.lolcomm.domain.RiotMemberMasteryVO;
 import com.lolcomm.domain.RiotMemberVO;
+import com.lolcomm.domain.RiotRankVO;
+import com.lolcomm.domain.ladderVO;
 import com.lolcomm.domain.levelRankingVO;
 @Repository
 public class RiotMemberDAOImpl implements RiotMemberDAO{
@@ -65,10 +70,32 @@ public class RiotMemberDAOImpl implements RiotMemberDAO{
 	}
 
 	@Override
-	public void insertLeague(List<RiotMemberLeague> leagueList) {
+	public void insertLeague(List<RiotMemberLeagueVO> leagueList) {
 		sqlSession.insert(namespace+".insert_league",leagueList);
 		
 	}
+
+	@Override
+	public void insertTierLeague(RiotRankVO tier) {
+		// TODO Auto-generated method stub
+		sqlSession.insert(namespace+".insert_rank_league",tier);
+	}
+
+	@Override
+	public List<ladderVO> select_ladder(PagingVO vo) {
+		// TODO Auto-generated method stub
+		
+		List<ladderVO> ranking=sqlSession.selectList(namespace+".select_ladder",vo);
+		
+		return ranking;
+	}
+
+	@Override
+	public int ladderCount() {
+		int count= sqlSession.selectOne(namespace+".countladder");
+		return count;
+	}
+
 
 	
 

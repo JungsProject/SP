@@ -13,7 +13,7 @@ import okhttp3.Response;
 public class RiotAPI {
 	@ResponseBody
 	@RequestMapping(value = "/riotAPI" ,produces = "application/json; charset=utf8")
-	public String riotAPI (@RequestParam("url") String url) {
+	public  String riotAPI (@RequestParam("url") String url) {
 		String message="";
 		
 		String API_KEY ="RGAPI-822ddabc-8aa1-4ee0-960a-7d0a41e8530e";

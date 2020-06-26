@@ -1,14 +1,21 @@
 package com.lolcomm.service;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
-import com.lolcomm.domain.RiotMemberLeague;
+import com.lolcomm.domain.PagingVO;
+import com.lolcomm.domain.RiotMemberLeagueRankVO;
+import com.lolcomm.domain.RiotMemberLeagueVO;
 import com.lolcomm.domain.RiotMemberMasteryVO;
 import com.lolcomm.domain.RiotMemberVO;
+import com.lolcomm.domain.RiotRankVO;
+import com.lolcomm.domain.ladderVO;
 import com.lolcomm.domain.levelRankingVO;
 import com.lolcomm.persistence.RiotMemberDAO;
 @Service
@@ -40,9 +47,42 @@ public class RiotMemberServiceImpl implements RiotMemberService {
 		return rmList;
 	}
 	@Override
-	public void insertLeague(List<RiotMemberLeague> leagueList) {
+	public void insertLeague(List<RiotMemberLeagueVO> leagueList) {
 		// TODO Auto-generated method stub
 		rmdao.insertLeague(leagueList);
+	}
+	@Override
+	public void insertTierLeague(RiotRankVO tier) {
+		// TODO Auto-generated method stub
+		List<RiotMemberLeagueVO> entries= tier.getEntries();
+		
+		Comparator<RiotMemberLeagueVO> sortComparator= new Comparator<RiotMemberLeagueVO>() {
+			
+			@Override
+			public int compare(RiotMemberLeagueVO o1, RiotMemberLeagueVO o2) {
+				if(o1.getLeaguePoints()>o2.getLeaguePoints())
+					return -1;
+				else if(o2.getLeaguePoints()>o1.getLeaguePoints())
+					return 1;
+				else 
+					return 0;
+			}
+		};
+		Collections.sort(entries, sortComparator);
+		tier.setEntries(entries);
+		rmdao.insertTierLeague(tier);
+		
+	}
+	@Override
+	public List<ladderVO> select_ladder(PagingVO vo) {
+		// TODO Auto-generated method stub
+		List<ladderVO> ranking=rmdao.select_ladder(vo);
+		return ranking;
+	}
+	@Override
+	public int ladderCount() {
+		int count= rmdao.ladderCount();
+		return count;
 	}
 
 
