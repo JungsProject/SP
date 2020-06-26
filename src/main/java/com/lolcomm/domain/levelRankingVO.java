@@ -1,13 +1,13 @@
 package com.lolcomm.domain;
 
 public class levelRankingVO {
-	String name;
-	int summonerLevel;
-	String tier;
-	int leaguePoints;
-	int wins;
-	int losses;
-	int rating;
+	private String name;
+	private int summonerLevel;
+	private String tier;
+	private int leaguePoints;
+	private int wins;
+	private int losses;
+	private int rating;
 	public String getName() {
 		return name;
 	}

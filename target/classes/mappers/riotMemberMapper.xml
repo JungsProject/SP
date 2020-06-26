@@ -38,7 +38,7 @@
   	insert into lolc_riotSearched_League(leagueId,queueType,tier,rank,
   	summonerId,summonerName,leaguePoints,wins,losses,veteran,inactive,freshBlood,hotStreak) 
   	values 
-  		<foreach collection="list" item="item" separator=",">
+  		<foreach collection="list" item="item" separator="," >
   		(#{item.leagueId},#{item.queueType},#{item.tier},#{item.rank},
   		#{item.summonerId},#{item.summonerName},#{item.leaguePoints},#{item.wins},#{item.losses},
   		#{item.veteran},#{item.inactive},#{item.freshBlood},#{item.hotStreak}) 
@@ -48,6 +48,23 @@
   	summonerId=values(summonerId),summonerName=values(summonerName),leaguePoints=values(leaguePoints),wins=values(wins),losses=values(losses),
   	veteran=values(veteran),inactive=values(inactive),freshBlood=values(freshBlood),hotStreak=values(hotStreak)
   </insert>
+ <!-- 유저 랭킹 정보 업데이트(챌린저~마스터) -->
+  <insert id="insert_rank_league">
+  	insert into lolc_riotSearched_League(leagueId,queueType,tier,rank,
+  	summonerId,summonerName,leaguePoints,wins,losses,veteran,inactive,freshBlood,hotStreak)
+  	values
+  	<foreach  collection="entries" item="item" separator="," index="index">
+  		(#{leagueId},#{queue},#{tier},#{item.rank},
+  		#{item.summonerId},#{item.summonerName},#{item.leaguePoints},#{item.wins},#{item.losses},
+  		#{item.veteran},#{item.inactive},#{item.freshBlood},#{item.hotStreak}) 
+  		</foreach>
+  	ON DUPLICATE KEY UPDATE 
+  	leagueId=values(leagueId),queueType=values(queueType),tier=values(tier),rank=values(rank),
+  	summonerId=values(summonerId),summonerName=values(summonerName),leaguePoints=values(leaguePoints),wins=values(wins),losses=values(losses),
+  	veteran=values(veteran),inactive=values(inactive),freshBlood=values(freshBlood),hotStreak=values(hotStreak)
+  </insert>
+  
+  
   <!-- 유저 정보 업데이트 -->
   <update id="update_user" >
   	update lolc_riotSearched_Member 
@@ -63,8 +80,25 @@ from lolc_riotSearched_Member as member
 join lolc_riotSearched_League as league
 on member.id=league.summonerId
 where league.queueType ='RANKED_SOLO_5x5'
-order by member.summonerLevel desc limit #{page},100;
+order by member.summonerLevel desc limit 0,100;
   </select>
- 
+  <!-- 랭킹정보 페이징 처리 -->
+  <select id="countladder" resultType="int">
+	SELECT COUNT(*) FROM lolc_riotSearched_League;
+</select>
+  
+  <!-- 랭킹정보 페이징 처리 -->
+ <!-- 랭킹정보 리스트 100개 -->
+ <select id="select_ladder" resultType="ladderVO" parameterType="PagingVO">
+select  summonerName , concat(tier,' ',rank) as tier,LeaguePoints,wins,losses,Round(wins/(wins+losses)*100,0) as winratio
+from lolc_riotSearched_League League 
+order by field(tier,'CHALLENGER','GRANDMASTER','MASTER','DIAMOND','PLATINUM','GOLD','SILVER','BRONZE','IRON'),
+rank ,tier asc, leaguePoints desc 
+limit #{start},#{cntPerPage};
+ </select>
+
+
+
+
   </mapper>
   

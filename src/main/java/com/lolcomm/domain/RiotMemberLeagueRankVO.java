@@ -1,7 +1,7 @@
 package com.lolcomm.domain;
 
-public class RiotMemberLeague {
-
+public class RiotMemberLeagueRankVO {
+	private int ranking;
 	private String leagueId;
 	private String queueType;
 	private String tier;
@@ -93,12 +93,18 @@ public class RiotMemberLeague {
 	public void setHotStreak(boolean hotStreak) {
 		this.hotStreak = hotStreak;
 	}
+	public int getRanking() {
+		return ranking;
+	}
+	public void setRanking(int ranking) {
+		this.ranking = ranking;
+	}
 	@Override
 	public String toString() {
-		return "RiotMemberLeague [leagueId=" + leagueId + ", queueType=" + queueType + ", tier=" + tier + ", rank="
-				+ rank + ", summonerId=" + summonerId + ", summonerName=" + summonerName + ", leaguePoints="
-				+ leaguePoints + ", wins=" + wins + ", losses=" + losses + ", veteran=" + veteran + ", inactive="
-				+ inactive + ", freshBlood=" + freshBlood + ", hotStreak=" + hotStreak + "]";
+		return "RiotMemberLeagueRankVO [ranking=" + ranking + ", leagueId=" + leagueId + ", queueType=" + queueType
+				+ ", tier=" + tier + ", rank=" + rank + ", summonerId=" + summonerId + ", summonerName=" + summonerName
+				+ ", leaguePoints=" + leaguePoints + ", wins=" + wins + ", losses=" + losses + ", veteran=" + veteran
+				+ ", inactive=" + inactive + ", freshBlood=" + freshBlood + ", hotStreak=" + hotStreak + "]";
 	}
 	
 	
